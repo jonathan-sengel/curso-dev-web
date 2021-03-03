@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <title>Desafio Jogo da Velha</title>
+</head>
+
+<body>
+    <div class="score-board">
+        <div id="p1"class="score">
+            <span>X</span>
+            <span>00</span>
+        </div>
+        <div id="p2" class="score">
+            <span>O</span>
+            <span>00</span>
+        </div>
+    </div>
+    <div class="stage">
+        <div class="std">
+            <div id="0" class="square no-border-left no-border-top">
+            </div>
+            <div id="1" class="square no-border-top">
+            </div>
+            <div id="2" class="square no-border-top no-border-right"></div>
+        </div>
+        <div class="std">
+            <div id="3" class="square no-border-left"></div>
+            <div id="4" class="square "></div>
+            <div id="5" class="square no-border-right"></div>
+        </div>
+        <div class="std">
+            <div id="6" class="square no-border-left no-border-bottom">
+            </div>
+            <div id="7" class="square no-border-bottom"></div>
+            <div id="8" class="square no-border-bottom no-border-right"></div>
+        </div>
+    </div>
+    <script src="./scripts/game.js"></script>
+    <script src="./scripts/interface.js"></script>
+</body>
+
+</html>
