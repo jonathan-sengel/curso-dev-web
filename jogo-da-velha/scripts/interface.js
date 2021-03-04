@@ -2,7 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //joga na variavel squares uma lista com todos os elementos .square do html
     let squares = document.querySelectorAll('.square');
+    let restart = document.getElementById('restart');
 
+    restart.addEventListener('click',clearSquares);
+    
     //para cada elemento square dentro da lista squares, ele atribui a function handleClick ao evento click;
     squares.forEach(square => {
         square.addEventListener('click', handleClick);
@@ -24,6 +27,9 @@ function handleClick(event) {
         setTimeout(() => {
             alert('O Jogo acabou!');
         }, 50);
+        updateScores(playersScore);
+        clearSquares();
+        
     }
 
 
@@ -52,19 +58,34 @@ function updateSquare(position) {
     }
 }
 
+function updateScores(scoresArr){
+    let scoreP0 = document.getElementById('p0-score');
+    let scoreP1 = document.getElementById('p1-score');
+
+    scoreP0.innerHTML = scoresArr[0];
+    scoreP1.innerHTML = scoresArr[1];
+}
+
 function currentPlayer() {
     let scoreElementLast = document.getElementById(`p${lastPlayer}`);
     let scoreElementNext = document.getElementById(`p${playerTime}`);
     
     scoreElementLast.classList.remove('selected');
     scoreElementNext.classList.add('selected');
-
-
-
-
-
     
 }
+
+function clearSquares(){
+    let squares = document.querySelectorAll('.square');
+
+    squares.forEach(square => {
+        if(square.lastChild){
+            square.lastChild.remove();
+        };
+    });
+    restartVariables();
+}
+
 
 // esta função atualizava todos os quadrados da tela, então foi a função acima que atualiza apenas o quadrado clicado;
 // function updateSquares() {

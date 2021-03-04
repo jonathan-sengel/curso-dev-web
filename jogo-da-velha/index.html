@@ -7,27 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <title>Desafio Jogo da Velha</title>
 </head>
 
 <body>
     <div class="score-board">
-        <div id="p0"class="score">
+        <div id="p0" class="score">
             <span>O</span>
-            <span>00</span>
+            <span id="p0-score">0</span>
         </div>
         <div id="p1" class="score">
             <span>X</span>
-            <span>00</span>
+            <span id="p1-score">0</span>
         </div>
     </div>
     <div class="stage">
         <div class="std">
-            <div id="0" class="square no-border-left no-border-top">
-            </div>
-            <div id="1" class="square no-border-top">
-            </div>
+            <div id="0" class="square no-border-left no-border-top"></div>
+            <div id="1" class="square no-border-top"></div>
             <div id="2" class="square no-border-top no-border-right"></div>
         </div>
         <div class="std">
@@ -42,6 +40,10 @@
             <div id="8" class="square no-border-bottom no-border-right"></div>
         </div>
     </div>
+    <div id="restart" class="restart">
+        <span>Reiniciar</span>
+    </div>
+
     <script src="./scripts/game.js"></script>
     <script src="./scripts/interface.js"></script>
 </body>

@@ -2,10 +2,11 @@
 
 let board = ['', '', '', '', '', '', '', '', ''];
 let playerTime = 0;
-let lastPlayer=0;
+let lastPlayer = 0;
 let symbols = ['o', 'x'];
 let gameOver = false;
 let boardPosition;
+let playersScore = [0, 0];
 let winStates = [
     [0, 1, 2],
     [3, 4, 5],
@@ -21,12 +22,13 @@ function handleMove(position) {
 
     //se gameOver for igual a true ele entra neste if e retorna true;
     if (gameOver) {
+        
         return;
     }
 
     //valida se o board no index referente ao position (que é o id do square clicado) está vazio, só entra no if se estiver
     if (board[position] == '') {
-        
+
         // define no index refere ao position dentro do array board o simbolo do player 1 ou 2, por padrão a primeira chamada será player 1 "O";
         board[position] = symbols[playerTime];
 
@@ -34,7 +36,7 @@ function handleMove(position) {
         gameOver = isWin();
         if (!gameOver) {
 
-            lastPlayer= playerTime;
+            lastPlayer = playerTime;
             // ternario, se playertime for igual a zero ? (siginifica que a variavel playerTime será igual ao que vem após o interrogação, senão receba o valor após o :
             playerTime = (playerTime == 0) ? 1 : 0;
 
@@ -64,10 +66,21 @@ function isWin() {
 
         //caso essa validação abaixo seja verdadeira, significa que existe uma das posições de vitoria definida no array winStates, então ele retorna true para o isWin();
         if (board[pos1] == board[pos2] && board[pos1] == board[pos3] && board[pos1] != '') {
+
+            playersScore[playerTime] += 1;
+            restartVariables();
             return true;
         }
     }
     //caso contrário retorna false;
     return false;
+}
 
+function restartVariables() {
+    board = ['', '', '', '', '', '', '', '', ''];
+    playerTime = 0;
+    lastPlayer = 0;
+    symbols = ['o', 'x'];
+    gameOver = false;
+    boardPosition;
 }
