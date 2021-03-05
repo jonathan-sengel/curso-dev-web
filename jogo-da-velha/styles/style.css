@@ -10,7 +10,7 @@ body {
     background-color: white;
     font-family: 'Fira Mono', monospace;}
 
-.score-board {
+.placar {
     width: calc(120*3px);
     display: flex;
     justify-content: space-between;
@@ -19,7 +19,7 @@ body {
     margin-bottom: 40px;
 }
 
-.score, .restart {
+.pontuacao, #reiniciar {
     display: flex;
     justify-content: space-between;
     width: 50%;
@@ -31,19 +31,19 @@ body {
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.123);
 }
 
-.selected {
-    animation-name: playerTime;
+.selecionado {
+    animation-name: jogadorDaVez;
     animation-duration: .8s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-timing-function: ease-out;
 }
 
-#p0 {
+#j0 {
     margin-right: 10px;
 }
 
-#p1 {
+#j1 {
     margin-left: 10px;
 }
 
@@ -53,7 +53,7 @@ body {
     justify-content: center;
 }
 
-.square {
+.campo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,11 +62,11 @@ body {
     border: 3px solid lightslategray;
 }
 
-.square:hover {
+.campo:hover {
     cursor: pointer;
 }
 
-.restart {
+#reiniciar {
     width: calc(120*3px);
     margin-top: 40px;
     justify-content: center;
@@ -75,7 +75,7 @@ body {
     transition-duration: .8s;
 }
 
-.restart:hover {
+#reiniciar:hover {
     cursor: pointer;
     background-color: lightgrey;
     color: coral;
@@ -100,17 +100,17 @@ body {
 }
 
 .o::after {
-    content: "\1F525";
+    content: "\1F534";
     font-size: 60px;
     /*porque é a mesma altura do container*/
 }
 
 .x::after {
-    content: "\1F30A";
+    content: "\2716";
     font-size: 60px;
 }
 
-@keyframes playerTime {
+@keyframes jogadorDaVez {
     0% {
         background-color: white;
         color: lightslategray;

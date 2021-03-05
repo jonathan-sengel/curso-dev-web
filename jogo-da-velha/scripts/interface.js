@@ -1,102 +1,82 @@
-document.addEventListener('DOMContentLoaded', () => {
+'use strict'
 
-    //joga na variavel squares uma lista com todos os elementos .square do html
-    let squares = document.querySelectorAll('.square');
-    let restart = document.getElementById('restart');
 
-    restart.addEventListener('click',clearSquares);
-    
-    //para cada elemento square dentro da lista squares, ele atribui a function handleClick ao evento click;
-    squares.forEach(square => {
-        square.addEventListener('click', handleClick);
+document.addEventListener('DOMContentLoaded', carregarElementos);
+
+function carregarElementos() {
+    let campos = document.querySelectorAll('.campo');
+    let btnReiniciar = document.getElementById('reiniciar');
+
+    btnReiniciar.addEventListener('click', reiniciarRodada);
+    campos.forEach(campo => {
+        campo.addEventListener('click', resolverClick);
     });
-    currentPlayer();
-});
-
-//função executada ao clicar em um elemento .square;
-function handleClick(event) {
-
-    //captura o objeto alvo do click pelo event disparado e atribui à variavel square;
-    let square = event.target;
-    //captura o ID do elemento .square clicado e joga na variavel position;
-    let position = square.id;
-
-    // se o retorno da function handleMove passando o argumento position retornar true, ele entra no if;
-    if (handleMove(position)) {
-
-        setTimeout(() => {
-            alert('O Jogo acabou!');
-        }, 50);
-        updateScores(playersScore);
-        clearSquares();
-        
-    }
-
-
-    //chama a function para atualização da visualização do .square clicado exibindo a imagem definida ao usuário (x/o)
-    updateSquare(position);
-
+    mostrarJogadorAtual(jogadorAtual);
 }
 
-//function que atualiza a view do campo clicado na pagina recebendo como argumento um position;
-function updateSquare(position) {
-    //se o position vir como vazio, ele grava no console log a mensagem abaixo, nao permitindo estourar erro e nem modificando nada;
-    if (position == '') {
-        console.log('> Por favor clique em um quadrado vazio!');
+function resolverClick(e) {
+    let elemento = e.target;
+    let campoClicado = elemento.id;
+
+    if (elemento.classList.contains('clicado'))
+        console.log('<log> => Já clicado...');
+    else {
+        elemento.classList.add('clicado');
+
+        if (efetuarJogada(campoClicado)) {
+            setTimeout(() => {
+                console.log('<log> => Partida finalizada, vencedor: ' + jogadorAtual);
+                console.log('<log> => Atualizando placar...');
+                atualizarPlacar();
+                reiniciarRodada();
+
+            }, 1000);
+        }
+        exibirSimbolo(elemento);
+        console.log('jogador atual: ' + jogadorAtual);
+        mostrarJogadorAtual(jogadorAtual);
+    }
+}
+
+function exibirSimbolo(elemento) {
+    let simbolo = tabuleiro[elemento.id];
+    if (simbolo != '') {
+        let divSimbolo = document.createElement('div');
+        divSimbolo.classList.add(simbolo, 'clicado');
+        elemento.append(divSimbolo);
     }
     else {
-
-        //joga na variavel square o id do .square clicado que foi passado na chamada da função "updateSquare";
-        let square = document.getElementById(position.toString());
-
-        //declara variavel symbol recebendo o index referente ao ID do square clicado , sendo assim ele vai definir em symbol se o clique foi do usuário O ou X;
-        let symbol = board[position];
-
-        // o square clicado pelo usuário receberá uma div com a class "o" ou "x", o que fará atualizar a visualização de acordo com o ::after configurado no CSS;
-        square.innerHTML = `<div class="${symbol}"> </div>`;
-        currentPlayer(playerTime);
+        console.log("<log> => Jogo já finalizado.. Reinicie para continuar!");
     }
 }
 
-function updateScores(scoresArr){
-    let scoreP0 = document.getElementById('p0-score');
-    let scoreP1 = document.getElementById('p1-score');
-
-    scoreP0.innerHTML = scoresArr[0];
-    scoreP1.innerHTML = scoresArr[1];
+function atualizarPlacar() {
+    let pontuacaoJ1 = document.getElementById('pontuacao-j0');
+    let pontuacaoJ2 = document.getElementById('pontuacao-j1');
+    pontuacaoJ1.innerHTML = placar[0];
+    pontuacaoJ2.innerHTML = placar[1];
 }
 
-function currentPlayer() {
-    let scoreElementLast = document.getElementById(`p${lastPlayer}`);
-    let scoreElementNext = document.getElementById(`p${playerTime}`);
-    
-    scoreElementLast.classList.remove('selected');
-    scoreElementNext.classList.add('selected');
-    
-}
+function mostrarJogadorAtual(jogador) {
 
-function clearSquares(){
-    let squares = document.querySelectorAll('.square');
-
-    squares.forEach(square => {
-        if(square.lastChild){
-            square.lastChild.remove();
-        };
+    document.querySelectorAll('.pontuacao').forEach(item => {
+        item.classList.remove('selecionado');
     });
-    restartVariables();
+
+    let placarJogador = document.getElementById(`j${jogador}`);
+    placarJogador.classList.add('selecionado');
+}
+
+function reiniciarRodada() {
+    resetarVariaveis();
+    document.querySelectorAll('.campo').forEach(item => {
+        item.classList.remove('clicado');
+        let child = item.firstChild;
+        if (child != null)
+            child.remove();
+
+    });
+    mostrarJogadorAtual(jogadorAtual);
 }
 
 
-// esta função atualizava todos os quadrados da tela, então foi a função acima que atualiza apenas o quadrado clicado;
-// function updateSquares() {
-//     let squares = document.querySelectorAll('.square');
-
-//     squares.forEach(square => {
-//         let position = square.id;
-//         let symbol = board[position];
-
-//         if (symbol != '') {
-//             square.innerHTML = `<div class="${symbol}"> </div>`;
-//         }
-//     });
-// }
