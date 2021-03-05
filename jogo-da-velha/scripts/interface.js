@@ -22,18 +22,18 @@ function resolverClick(e) {
         console.log('<log> => Já clicado...');
     else {
         elemento.classList.add('clicado');
+        efetuarJogada(campoClicado)
 
-        if (efetuarJogada(campoClicado)) {
-            setTimeout(() => {
-                console.log('<log> => Partida finalizada, vencedor: ' + jogadorAtual);
-                console.log('<log> => Atualizando placar...');
-                atualizarPlacar();
-                reiniciarRodada();
-
-            }, 1000);
+        if (estadosJogo.vitoria) {
+            console.log('<log> => Partida finalizada, vencedor: ' + jogadorAtual);
+            atualizarPlacar();
+            // reiniciarRodada();
         }
+        else if (estadosJogo.empate) {
+            console.log('<log> => Ocorreu empate;');
+        }
+
         exibirSimbolo(elemento);
-        console.log('jogador atual: ' + jogadorAtual);
         mostrarJogadorAtual(jogadorAtual);
     }
 }
@@ -59,12 +59,17 @@ function atualizarPlacar() {
 
 function mostrarJogadorAtual(jogador) {
 
-    document.querySelectorAll('.pontuacao').forEach(item => {
+    document.querySelectorAll('.interacao').forEach(item => {
         item.classList.remove('selecionado');
     });
 
-    let placarJogador = document.getElementById(`j${jogador}`);
-    placarJogador.classList.add('selecionado');
+    if (!estadosJogo.vitoria && !estadosJogo.empate) {
+        let placarJogador = document.getElementById(`j${jogador}`);
+        placarJogador.classList.add('selecionado');
+    }
+    else {
+        document.getElementById('reiniciar').classList.add('selecionado');
+    }
 }
 
 function reiniciarRodada() {
