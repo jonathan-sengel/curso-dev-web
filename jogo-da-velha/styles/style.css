@@ -128,7 +128,7 @@ body {
 
 .o::after {
     content: "\1F534";
-    font-size: 60px;
+    font-size: 50px;
     /*porque é a mesma altura do container*/
 }
 
@@ -155,15 +155,18 @@ body {
 
 @keyframes sairdaTela {
     0% {
-        opacity: .75;
+        opacity: 1;
     }
     25% {
+        opacity: .75;
+    }
+    50% {
         opacity: .50;
     }
     75% {
         opacity: .25;
     }
-    100% {
+    100%{
         opacity: 0;
     }
 }

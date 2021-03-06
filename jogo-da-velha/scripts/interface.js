@@ -1,11 +1,14 @@
 'use strict'
-
-
 document.addEventListener('DOMContentLoaded', carregarElementos);
+let divTabuleiro = document.getElementById('tab');
+let divResultado = document.getElementById('resultado');
+let textResultado = document.getElementById('texto');
+let tituloResultado = document.getElementById('titulo');
 
 function carregarElementos() {
     let campos = document.querySelectorAll('.campo');
     let btnReiniciar = document.getElementById('reiniciar');
+
 
     btnReiniciar.addEventListener('click', reiniciarRodada);
     campos.forEach(campo => {
@@ -27,11 +30,12 @@ function resolverClick(e) {
         if (estadosJogo.vitoria) {
             console.log('<log> => Partida finalizada, vencedor: ' + jogadorAtual);
             atualizarPlacar();
-            exibirVencedor();
+            exibirResultado(estadosJogo);
             // reiniciarRodada();
         }
         else if (estadosJogo.empate) {
             console.log('<log> => Ocorreu empate;');
+            exibirResultado(estadosJogo);
         }
 
         exibirSimbolo(elemento);
@@ -86,21 +90,41 @@ function reiniciarRodada() {
     mostrarJogadorAtual(jogadorAtual);
 }
 
-function exibirVencedor() {
-    let tabuleiro = document.getElementById('tab');
-    tabuleiro.classList.add('sair-tela');
+function exibirResultado(estado) {
 
-    setInterval(() => {
-        tabuleiro.style.display= 'none';
-        let resultado = document.getElementById('resultado');
-        resultado.style.display = 'flex';
-        resultado.classList.add('entrar-tela');
-        let text = document.getElementById('texto');
-        text.innerHTML = (jogadorAtual == 0) ? '&#128308;' : '&#10006;';
-    }, 500);
+    divTabuleiro.classList.add('sair-tela');
+
+    setTimeout(() => {
+        divTabuleiro.style.display = 'none';
+        divResultado.style.display = 'flex';
+        divResultado.classList.add('entrar-tela');
+        if (estado.vitoria) {
+            tituloResultado.innerHTML = 'O VENCEDOR É'
+            textResultado.innerHTML = (jogadorAtual == 0) ? '&#128308;' : '&#10006;';
+        }
+        else if (estado.empate) {
+            tituloResultado.innerHTML = 'HOUVE EMPATE'
+            textResultado.innerHTML = '&#128308;' + '&#10006;';
+        }
+    }, 800);
 
 }
 
-function exibirTabuleiro(){
-    
+function exibirTabuleiro() {
+    divResultado.classList.remove('entrar-tela');
+    divResultado.classList.add('sair-tela');
+    divResultado.style.display = 'none';
+
+    divTabuleiro.classList.remove('sair-tela');
+    divTabuleiro.style.display = 'block';
+    divTabuleiro.classList.add('entrar-tela');
+    setTimeout(() => { limparClasses(); }, 600);
+
+}
+
+function limparClasses() {
+    divResultado.classList.remove('entrar-tela');
+    divResultado.classList.remove('sair-tela');
+    divTabuleiro.classList.remove('entrar-tela');
+    divTabuleiro.classList.remove('sair-tela');
 }
