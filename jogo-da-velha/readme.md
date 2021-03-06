@@ -1,6 +1,8 @@
-# Halloween Tic-Tac-Toe
+<h1><a href="#">Halloween Tic-Tac-Toe</a></h1>
 
-<img src='' >
+<img src='https://github.com/jonathan-sengel/curso-dev-web/blob/master/jogo-da-velha/media/mobile1.png'/> 
+<img src='https://github.com/jonathan-sengel/curso-dev-web/blob/master/jogo-da-velha/media/mobile2.png' />
+
 
 ## Este é o resultado do desafio jogo da velha proprosto no curso do Programador BR.
 
