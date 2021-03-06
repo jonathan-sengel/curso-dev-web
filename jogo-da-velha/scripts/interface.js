@@ -99,12 +99,12 @@ function exibirResultado(estado) {
         divResultado.style.display = 'flex';
         divResultado.classList.add('entrar-tela');
         if (estado.vitoria) {
-            tituloResultado.innerHTML = 'O VENCEDOR É'
-            textResultado.innerHTML = (jogadorAtual == 0) ? '&#128308;' : '&#10006;';
+            tituloResultado.innerHTML = 'VENCEU'
+            textResultado.innerHTML = (jogadorAtual == 0) ? '&#x1F383;' : '&#x1F47B;';
         }
         else if (estado.empate) {
-            tituloResultado.innerHTML = 'HOUVE EMPATE'
-            textResultado.innerHTML = '&#128308;' + '&#10006;';
+            tituloResultado.innerHTML = 'EMPATOU'
+            textResultado.innerHTML = '&#x1F383;' + '&#x1F47B;';
         }
     }, 800);
 
