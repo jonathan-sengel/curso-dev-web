@@ -27,6 +27,7 @@ function resolverClick(e) {
         if (estadosJogo.vitoria) {
             console.log('<log> => Partida finalizada, vencedor: ' + jogadorAtual);
             atualizarPlacar();
+            exibirVencedor();
             // reiniciarRodada();
         }
         else if (estadosJogo.empate) {
@@ -81,7 +82,25 @@ function reiniciarRodada() {
             child.remove();
 
     });
+    exibirTabuleiro();
     mostrarJogadorAtual(jogadorAtual);
 }
 
+function exibirVencedor() {
+    let tabuleiro = document.getElementById('tab');
+    tabuleiro.classList.add('sair-tela');
 
+    setInterval(() => {
+        tabuleiro.style.display= 'none';
+        let resultado = document.getElementById('resultado');
+        resultado.style.display = 'flex';
+        resultado.classList.add('entrar-tela');
+        let text = document.getElementById('texto');
+        text.innerHTML = (jogadorAtual == 0) ? '&#128308;' : '&#10006;';
+    }, 500);
+
+}
+
+function exibirTabuleiro(){
+    
+}
