@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 63.5%;
+    font-family: 'Titillium Web', sans-serif;
+    color: #dcdcdd;
+    background-color: #0d1b2a;
+}
+
+body {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/*==================== HEADER ====================*/
+
+.header {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.header .header__logo {
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.header .header__list {
+    list-style: none;
+    display: flex;
+}
+
+.header .header__menu .header__item {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 2.5rem;
+    background-color: #1b263b;
+    transition: background-color .6s;
+}
+
+.header .header__menu .header__item:hover {
+    cursor: pointer;
+    background-color: #dcdcdd;
+    color: #1b263b;
+    transform: scale(1.1);
+}
+
+/*==================== FEATURED ====================*/
+
+.featured-list {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+}
+
+.featured-list .featured-list__container {
+    width: 100%;
+    position: relative;
+}
+
+.featured-list__container .featured-list__content {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0)), url('https://www.themoviedb.org/t/p/original/lOSdUkGQmbAl5JQ3QoHqBZUbZhC.jpg');
+    background-size: cover;
+}
+
+.featured-list__container .featured-list__swatch-bar {
+    width: 100%;
+    height: 18rem;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    position: absolute;
+    bottom: 60px;
+}
+
+.featured-list__swatch-bar .swatch-bar__movie {
+    position: relative;
+    transition: .5s;
+}
+
+.featured-list__swatch-bar .swatch-bar__movie:hover {
+    cursor: pointer;
+    filter: brightness(1.1);
+}
+
+.swatch-bar__movie .swatch-bar__movie__title {
+    padding: 0 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.50);
+    z-index: 1;
+}
+
+.swatch-bar__movie__poster {
+    width: 29rem;
+    height: 16rem;
+    margin-right: 20px;
+    border: 6px solid rgba(0, 0, 0, 0.377);
+}
+.glider-slider{
+    width: 295px;
+    margin-right: 20px;
+}
+.glider.draggable .glider-slide img{
+    pointer-events: auto;
+}
+.swatch-bar__movie__poster--active {
+    border: 6px solid rgba(231, 15, 15, 0.50);
+    /* transform: scale(1.1); */
+}
+/*==================== LIST MOVIES ====================*/
+
+.movie__details--disabled {
+    opacity: 0;
+    display: none;
+}
+
+.movies-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    padding-left: 20px;
+}
+
+.movies-list>span {
+    font-size: 3rem;
+    padding-bottom: 20px;
+}
+
+.movies__container {
+    width: 100%;
+    display: flex;
+}
+
+.movies-list__movie {
+    width: 290px;
+    height: 430px;
+    margin-right: 20px;
+    background-color: #1b263b;
+    position: relative;
+    overflow-y: hidden;
+}
+
+.movie__media {
+    width: 100%;
+    height: 100%;
+}
+
+.movie__media__rating {
+    font-size: 2rem;
+    padding: 0 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgba(231, 15, 15, 0.678);
+}
+
+.movie__media__poster {
+    width: 100%;
+    object-fit: none;
+}
+
+.movie__details {
+    width: 100%;
+    height: 50%;
+    padding: 10px;
+    position: absolute;
+    bottom: 62px;
+    font-size: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.70);
+}
+
+.movie__details__title {
+    font-size: 2.2rem;
+}
+.movie__details__release{
+    position: absolute;
+    bottom: 10px;
+}
+.movie__more__info {
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    font-size: 4rem;
+}
+
+.movie__more__info:hover {
+    cursor: pointer;
+}
+
+
+
+

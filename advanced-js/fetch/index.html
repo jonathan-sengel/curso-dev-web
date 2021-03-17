@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Js Avançado</title>
 </head>
+
 <body>
 
     <form action="">
@@ -16,4 +18,184 @@
     <h1 id="resultado"></h1>
     <script src="script.js"></script>
 </body>
+
 </html>
+
+<script type="text/javascript">
+    require(['jquery', 'owl.carousel/owl.carousel.min'], function ($) {
+
+        $(window).on("load", function () {
+
+            $("#half-image-1").css("min-height", $("#half-content-1").outerHeight() + "px");
+            $("#half-image-2").css("min-height", $("#half-content-2").outerHeight() + "px");
+            $("#half-image-3").css("min-height", $("#half-content-3").outerHeight() + "px");
+            $("#half-image-4").css("min-height", $("#half-content-4").outerHeight() + "px");
+
+            setTimeout(function () {
+                $("#half-image-1").css("min-height", $("#half-content-1").outerHeight() + "px");
+                $("#half-image-2").css("min-height", $("#half-content-2").outerHeight() + "px");
+                $("#half-image-3").css("min-height", $("#half-content-3").outerHeight() + "px");
+                $("#half-image-4").css("min-height", $("#half-content-4").outerHeight() + "px");
+            }, 500);
+            $(window).resize(function () {
+                setTimeout(function () {
+                    $("#half-image-1").css("min-height", $("#half-content-1").outerHeight() + "px");
+                    $("#half-image-2").css("min-height", $("#half-content-2").outerHeight() + "px");
+                    $("#half-image-3").css("min-height", $("#half-content-3").outerHeight() + "px");
+                    $("#half-image-4").css("min-height", $("#half-content-4").outerHeight() + "px");
+                }, 500);
+            });
+
+            $("#banner-slider-demo-4").owlCarousel({
+                items: 1,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                autoWidth: true,
+                animateIn: 'fadeIn',
+                animateOut: 'fadeOut',
+                responsiveBaseElement: ".full-screen-slider",
+                loop: true,
+                navRewind: true,
+                nav: false,
+                dots: true,
+                navText: ["<em class='porto-icon-chevron-left'></em>", "<em class='porto-icon-chevron-right'></em>"]
+            });
+            $(".main-container").remove();
+
+            $("#fashion_product .owl-carousel").owlCarousel({
+                loop: true,
+                margin: 0,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                navRewind: true,
+                nav: false,
+                dots: true,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    768: {
+                        items: 3
+                    },
+                    992: {
+                        items: 4
+                    },
+                    1200: {
+                        items: 5
+                    }
+                }
+            });
+
+
+            $("#fashion_product2 .owl-carousel").owlCarousel({
+                loop: true,
+                margin: 0,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                navRewind: true,
+                nav: false,
+                dots: true,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    768: {
+                        items: 3
+                    },
+                    992: {
+                        items: 4
+                    },
+                    1200: {
+                        items: 5
+                    }
+                }
+            });
+
+            $("#category_product1 .owl-carousel").owlCarousel({
+                loop: true,
+                margin: 0,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                navRewind: true,
+                nav: false,
+                dots: true,
+                navText: ["<em class='porto-icon-angle-left'></em>", "<em class='porto-icon-angle-right'></em>"],
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    640: {
+                        items: 2
+                    }
+                }
+            });
+
+            $("#category_product2 .owl-carousel").owlCarousel({
+                loop: true,
+                margin: 0,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                navRewind: true,
+                nav: false,
+                dots: true,
+                navText: ["<em class='porto-icon-angle-left'></em>", "<em class='porto-icon-angle-right'></em>"],
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    640: {
+                        items: 2
+                    }
+                }
+            });
+
+            $("#category_product3 .owl-carousel").owlCarousel({
+                loop: true,
+                margin: 0,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                navRewind: true,
+                nav: false,
+                dots: true,
+                navText: ["<em class='porto-icon-angle-left'></em>", "<em class='porto-icon-angle-right'></em>"],
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    640: {
+                        items: 2
+                    }
+                }
+            });
+
+            $("#category_product4 .owl-carousel").owlCarousel({
+                loop: true,
+                margin: 0,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                navRewind: true,
+                nav: false,
+                dots: true,
+                navText: ["<em class='porto-icon-angle-left'></em>", "<em class='porto-icon-angle-right'></em>"],
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    640: {
+                        items: 2
+                    }
+                }
+            });
+
+
+        });
+    });
+
+</script>
