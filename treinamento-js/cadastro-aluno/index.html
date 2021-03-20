@@ -28,10 +28,14 @@
         <section class="l-content__add-user">
             <h2>Adicionar estudante</h2>
             <form action="" class="l-content__form">
-                <input type="text" class="form__input input-fname" name="fname" id="fname" placeholder="Nome" autocomplete="off" required>
-                <input type="text" class="form__input input-lname" name="lname" id="lname" placeholder="Sobrenome" autocomplete="off" required>
-                <input type="number" class="form__input input-nota" name="nota1" id="nota1" placeholder="Nota 1" autocomplete="off" required step=".1">
-                <input type="number" class="form__input input-nota" name="nota2" id="nota2" placeholder="Nota 2" autocomplete="off" required step=".1">
+                <input type="text" class="form__input input-fname" name="fname" id="fname" placeholder="Nome"
+                    autocomplete="off" required>
+                <input type="text" class="form__input input-lname" name="lname" id="lname" placeholder="Sobrenome"
+                    autocomplete="off" required>
+                <input type="number" class="form__input input-nota" name="nota1" id="nota1" placeholder="Nota 1"
+                    autocomplete="off" required step=".1">
+                <input type="number" class="form__input input-nota" name="nota2" id="nota2" placeholder="Nota 2"
+                    autocomplete="off" required step=".1">
                 <input type="submit" class="form__input input-btn" value="Cadastrar">
                 <span class="form__input empty-message">
                 </span>
@@ -39,10 +43,21 @@
         </section>
     </main>
 
+    <div class="l-modal">
+        <div class="l-modal__box">
+            <span class="box__message">
+                Cadastrado com sucesso!
+            </span>
+            <button class="box__button">
+                Fechar
+            </button>
+        </div>
+    </div>
 
     <footer class='l-footer'>
         <div class="l-footer__info">
-            <h3>Desenvolvido por <a href="https://github.com/jonathan-sengel" target="_blank"><mark>Jonathan Engel</mark></a></h3>
+            <h3>Desenvolvido por <a href="https://github.com/jonathan-sengel" target="_blank"><mark>Jonathan
+                        Engel</mark></a></h3>
         </div>
     </footer>
 

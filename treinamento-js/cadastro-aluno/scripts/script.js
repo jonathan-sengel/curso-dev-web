@@ -16,8 +16,9 @@ const db = firebase.firestore();
 const $btnAdd = document.querySelector('.input-btn');
 $btnAdd.addEventListener('click', execute);
 
-const $fields = document.querySelectorAll('.form__input:not(.input-btn)');
+const $fields = document.querySelectorAll('.form__input:not(.input-btn,.empty-message');
 const $spanMessage = document.querySelector('.empty-message');
+const $modal = document.querySelector('.l-modal');
 
 
 const colectData = () => {
@@ -36,8 +37,7 @@ function addStudent(student) {
         sobrenome: student.lastName,
         notas: { nota1: student.nota1, nota2: student.nota2 }
     }).then(doc => {
-        console.log('> Cadastrado com sucesso!');
-        clearFields();
+        showSuccessModal();
     }).catch(err => {
         console.log(err);
     });
@@ -46,7 +46,7 @@ function addStudent(student) {
 function clearFields() {
     $fields.forEach(field => field.value = '');
     $fields[0].focus();
-    $spanMessage.innerHTML ='';
+    $spanMessage.innerHTML = '';
 }
 
 function isFilledFields() {
@@ -59,11 +59,20 @@ function execute(e) {
     e.preventDefault();
     if (isFilledFields()) {
         addStudent(colectData());
-    }else{
+    } else {
         fieldEmptyMessage();
     }
 }
 
-function fieldEmptyMessage (){
+function fieldEmptyMessage() {
     $spanMessage.innerHTML = 'Preencha todos os campos acima!!';
+}
+
+function showSuccessModal() {
+    $modal.classList.add('l-modal--active');
+    const $button = $modal.querySelector('.box__button');
+    $button.addEventListener('click', () => {
+        $modal.classList.remove('l-modal--active');
+        clearFields();
+    });
 }
