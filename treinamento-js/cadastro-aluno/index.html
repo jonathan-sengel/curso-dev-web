@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Cadastro de Aluno</title>
+</head>
+
+<body>
+
+    <header class='l-header'>
+        <ul class="l-header__menu-list">
+            <li class="menu-list__item menu-list__item--active">Adicionar</li>
+            <li class="menu-list__item">Consultar</li>
+            <li class="menu-list__item">Editar</li>
+            <li class="menu-list__item">Remover</li>
+        </ul>
+    </header>
+
+
+
+    <main class='l-content'>
+        <section class="l-content__add-user">
+            <h2>Adicionar estudante</h2>
+            <form action="" class="l-content__form">
+                <input type="text" class="form__input input-fname" name="fname" id="fname" placeholder="Nome" autocomplete="off" required>
+                <input type="text" class="form__input input-lname" name="lname" id="lname" placeholder="Sobrenome" autocomplete="off" required>
+                <input type="number" class="form__input input-nota" name="nota1" id="nota1" placeholder="Nota 1" autocomplete="off" required step=".1">
+                <input type="number" class="form__input input-nota" name="nota2" id="nota2" placeholder="Nota 2" autocomplete="off" required step=".1">
+                <input type="submit" class="form__input input-btn" value="Cadastrar">
+                <span class="form__input empty-message">
+                </span>
+            </form>
+        </section>
+    </main>
+
+
+    <footer class='l-footer'>
+        <div class="l-footer__info">
+            <h3>Desenvolvido por <a href="https://github.com/jonathan-sengel" target="_blank"><mark>Jonathan Engel</mark></a></h3>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase.js"></script>
+    <script src="./scripts/script.js"></script>
+</body>
+
+</html>
