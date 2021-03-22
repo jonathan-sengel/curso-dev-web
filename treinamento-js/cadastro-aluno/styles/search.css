@@ -1,0 +1,44 @@
+:root {
+    /*
+    ========== COLOR VARIABLES ========== */
+    --mango: #ffbe0b;
+    --azure: #3a86ff;
+    --orange: #fb5607;
+    --winter-sky: #ff006e;
+    --violet: #8338ec;
+    --violet-transp: #8338ec5d;
+    --white: #ebf2ff;
+    --oxford-blue: #000e29;
+    --oxford-blue-transp: #000e29bd;
+}
+
+.l-content__table-container {
+    overflow-y: auto;
+}
+
+.table-container__table {
+    /* font-size: 14px; */
+    border-collapse: collapse;
+    background-color: var(--oxford-blue);
+}
+
+tr:nth-child(even) {
+    background-color: var(--white);
+    color: var(--oxford-blue);
+}
+
+th, td {
+    max-width: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.39);
+}
+
+th:not( :nth-child(1)) {
+    width: 60px;
+}
+
+th {
+    background-color: var(--mango);
+    color: var(--oxford-blue);
+    font-weight: 700;
+    border-color: var(--oxford-blue);
+}

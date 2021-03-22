@@ -30,6 +30,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 a {
     text-decoration: none;
 }
+a:visited{
+    color: var(--white);
+}
 
 mark {
     background: var(--oxford-blue);
@@ -69,7 +72,7 @@ body {
     margin-right: 10px;
     border-radius: 10px;
     background: var(--violet-transp);
-    transition: 1000ms;
+    transition: 1000ms background;
 }
 
 .menu-list__item:hover {
@@ -94,7 +97,7 @@ body {
 .l-content__add-user {
     text-align: center;
     max-width: 450px;
-    padding: 30px 50px;
+    padding: 30px;
     background: var(--azure);
     border-radius: 10px;
     box-shadow: 0px 0px 10px var(--violet-transp);
@@ -114,12 +117,12 @@ body {
     font-size: 16px;
     padding: 10px;
     margin-bottom: 10px;
-    transition: 250ms;
+    transition: 250ms transform background;
 }
 
 .form__input:focus:not(.input-btn) {
     box-shadow: 0px 0px 8px var(--oxford-blue);
-    transform: scale(1.1);
+    transform: scale(1.1) ;
 }
 
 .input-btn:hover, .box__button:hover {
