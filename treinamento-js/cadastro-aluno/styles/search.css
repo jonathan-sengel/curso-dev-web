@@ -14,12 +14,14 @@
 
 .l-content__table-container {
     overflow-y: auto;
+    max-height: 350px;
 }
 
 .table-container__table {
     /* font-size: 14px; */
     border-collapse: collapse;
     background-color: var(--oxford-blue);
+    
 }
 
 tr:nth-child(even) {

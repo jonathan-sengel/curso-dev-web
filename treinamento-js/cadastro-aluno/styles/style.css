@@ -42,10 +42,10 @@ mark {
 
 body {
     display: grid;
-    grid-template-areas: 'g-header' 'g-content' 'g-footer';
-    grid-template-rows: 80px auto auto;
     height: 100vh;
     width: 100vw;
+    grid-template-areas: 'g-header' 'g-content' 'g-footer';
+    grid-template-rows: 10vh 80vh 10vh;
     color: var(--white);
     background: linear-gradient(to bottom, var(--oxford-blue), var(--white));
 }
