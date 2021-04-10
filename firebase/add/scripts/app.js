@@ -29,13 +29,13 @@ db.collection(TURMA).add({
   console.log(err);
 });
 
-// db.collection(TURMA).doc('AlunoNovo').update(
-//   {
-//     // cidades: firebase.firestore.FieldValue.arrayUnion('São Paulo', 'Rio de Janeiro') add valores a um array já existente.
-//     faltas: firebase.firestore.FieldValue.increment(1)
-//   }
-// ).then(doc =>{
-//   console.log('Documento inserido com sucesso:');
-// }).catch(err =>{
-//   console.log(err);
-// });
+db.collection(TURMA).doc('AlunoNovo').update(
+  {
+    // cidades: firebase.firestore.FieldValue.arrayUnion('São Paulo', 'Rio de Janeiro') add valores a um array já existente.
+    faltas: firebase.firestore.FieldValue.increment(1)
+  }
+).then(doc =>{
+  console.log('Documento inserido com sucesso:');
+}).catch(err =>{
+  console.log(err);
+});

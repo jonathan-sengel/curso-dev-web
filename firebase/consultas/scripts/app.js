@@ -40,16 +40,15 @@ db.collection('turmaA').get().then((snapshot)=>{
 // })
 
 
-// db.collection('turmaA').onSnapshot(snapshot => {
+db.collection('turmaA').where('notas.nota1','>',8).onSnapshot(snapshot => {
 
-//   snapshot.forEach(doc => {
-//     let aluno = doc.data();
-//     console.log(aluno);
-//   });
-// });
+  snapshot.forEach(doc => {
+    let aluno = doc.data();
+    console.log(aluno.notas);
+  });
+});
 
-// let docRef = db.collection('turmaA').doc('AlunoNovo');
-
+// let docRef = db.collection('turmaA').doc('G82iGAGPePy0jF2mL2Tq');
 // docRef.onSnapshot(snapshot => {
-//   console.log(snapshot.data().cidades);
+//   console.log(snapshot.data());
 // });
