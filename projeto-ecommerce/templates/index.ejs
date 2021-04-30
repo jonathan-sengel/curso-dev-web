@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../public/index.css" type="text/css">
+    <title>
+        <%= storeName %>
+    </title>
+</head>
+
+<body>
+    <div class="page-frame">
+        <header>
+            <div class="logo">
+                <strong>e</strong>Dig
+            </div>
+            <div class="actions">
+                <span class="action-btn btn-account">person</span>
+                <span class="action-btn btn-cart">shopping_cart</span>
+            </div>
+        </header>
+        <main>
+            <div class="info-bar">
+                <span class="category-name">Todos Produtos</span>
+            </div>
+            <div class="products-list">
+
+                <% for(let prod of products.baseProducts) { %>
+
+                    <div id=<%= prod.id %> class="product-container">
+                        <img src=<%= prod.imageUrl %>  >
+                        <div class="info">
+                            <h4 id="description"><%= prod.name %> </h4>
+                            <p>Descrição abreviada</p>
+                            <h4 id="price">R$<%= prod.price %> </h4>
+                        </div>
+                    </div>
+
+                <% } %>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+</body>
+
+</html>
