@@ -4,7 +4,7 @@ const Link = require('../models/Link');
 const redirect = async (req, res, next) => {
     let title = req.params.title;
     try {
-        let doc = await Link.findOne({ title });
+        let doc = await Link.findOneAndUpdate({ title }, {$inc:{click:1}});
         if (doc) {
             res.redirect(doc.url);
         }
@@ -22,7 +22,7 @@ const addLink = (req, res) => {
 
     link.save()
         .then(doc => res.redirect('/'))
-        .catch(error => res.render('index', { error, body: req.body }));
+        .catch(error => res.render('add', { error, body: req.body }));
 }
 
 const allLinks = (req, res) => {
